@@ -132,9 +132,9 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
 1.	Select **+** under Parameter section to create parameters
     Create below mentioned two parameter:
     
-       i.	Name as **``folderPath``** with default value **``@dataset().fileName``**.
+       i.	Name as **``fileName``** with default value **``@dataset().fileName``**.
        
-      ii.	Name as **``fileName``** with default value **``@dataset().folderPath``**.
+      ii.	Name as **``folderPath``** with default value **``@dataset().folderPath``**.
     
     ![createParameter](./assets/07-adwork-create-parameters.jpg "create parameter")
 
