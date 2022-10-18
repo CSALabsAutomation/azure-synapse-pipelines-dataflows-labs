@@ -169,7 +169,7 @@ function Save-SynapseSampleArtifacts{
   $headers = @{ Authorization = "Bearer $token" }
 
   $synapseTokens = @{"`#`#azsynapsewks`#`#" = $SynapseWorkspaceName; }
-  $indexFileUrl = "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-labs/main/environments/env1/Sample/index.json"
+  $indexFileUrl = "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-pipelines-dataflows-labs/main/environments/env1/Sample/index.json"
   $sampleCodeIndex = Invoke-WebRequest $indexFileUrl | ConvertFrom-Json
 
   foreach($sampleArtifactCollection in $sampleCodeIndex)
@@ -417,7 +417,7 @@ function Save-SynapseSampleArtifacts{
        Install-Module -Name Az.Accounts -Force
     }
 
-$uri = "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-labs/main/environments/env1/Sample/Artifacts/TaxiDataFiles/Geography.csv";
+$uri = "https://raw.githubusercontent.com/CSALabsAutomation/azure-synapse-pipelines-dataflows-labs/main/environments/env1/Sample/Artifacts/TaxiDataFiles/Geography.csv";
 $bacpacFileName = "Geography.csv";
 #$storageaccount = Get-AzStorageAccount -ResourceGroupName $Resourcegroupname;
 $storageaccountkey = Get-AzStorageAccountKey -ResourceGroupName $Resourcegroupname -Name $RawDataLakeAccountName;
