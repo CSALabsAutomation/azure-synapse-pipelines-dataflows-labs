@@ -195,11 +195,13 @@ In this section, you will use integration datasets for creating a dataflow for l
 
 14.   Open expression builder and select Table as **_``$tableName``_**.
 
-14.	Select **_Recreate table_** as Table action under settings.
+   ![Dataflow](./assets/exp.jpg "Create Dataflow")
+
+15.	Select **_Recreate table_** as Table action under settings.
 
   ![Dataflow](./assets/df9.jpg "Create Dataflow")
  
-15.	Select below checkboxes under **_Mapping_** section 
+16.	Select below checkboxes under **_Mapping_** section 
     
     i.	  Skip duplicate input column.
     
@@ -207,7 +209,7 @@ In this section, you will use integration datasets for creating a dataflow for l
     
  ![Dataflow](./assets/df8.jpg "Create Dataflow")
 
-16. Then click on **Validate** to validate created dataflow. Once dataflow has been validated publish it.
+17. Then click on **Validate** to validate created dataflow. Once dataflow has been validated publish it.
 
 ### Step 3 : Steps to Create Pipeline :
 
