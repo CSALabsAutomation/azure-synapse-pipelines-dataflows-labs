@@ -189,10 +189,12 @@ In this section, you will use integration datasets for creating a dataflow for l
 
 12.	Select Sinktype as **_WorkspaceDB_**.
 
-13.	Select Database **_adworks_** and Table as **_``$tableName``_**.
+13.	Select Database **_adworks_** 
 
   ![Dataflow](./assets/df7.jpg "Create Dataflow")
-  
+
+14.   Open expression builder and select Table as **_``$tableName``_**.
+
 14.	Select **_Recreate table_** as Table action under settings.
 
   ![Dataflow](./assets/df9.jpg "Create Dataflow")
