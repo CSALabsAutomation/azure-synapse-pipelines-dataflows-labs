@@ -1,0 +1,6 @@
+title: Creating Data set from ADLS Gen2 storage
+internal_name: Creating Data set from ADLS Gen2 storage
+vendor: azure
+runtime: python3.8
+memory: 128
+timeout: 10
