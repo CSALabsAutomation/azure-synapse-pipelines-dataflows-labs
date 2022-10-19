@@ -241,7 +241,7 @@
     },
     "ctrlDeploySynapseSparkPool": {
       "type": "bool",
-      "defaultValue": false,
+      "defaultValue": true,
       "metadata": {
         "description": "Deploy Spark Pool"
       }
