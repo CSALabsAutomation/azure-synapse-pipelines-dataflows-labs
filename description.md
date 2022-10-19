@@ -5,14 +5,7 @@ The objective of this lab is to provide participants solid understanding and exp
 
 -Data ingestion and transformation using Synapse pipelines and data flows
 
--Data Ingestion and transformation using Synapse Spark
-
--Analyze data using Synapse Dedicated Pool
-
--Analyze data using Serverless pools
-
--Data warehouse Optimization
-
+-
 ## Intended Audience
 
 Architects and developers responsible for designinging, building, and troubleshooting  Azure Synapse solutions
