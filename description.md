@@ -5,7 +5,6 @@ The objective of this lab is to provide participants solid understanding and exp
 
 -Data ingestion and transformation using Synapse pipelines and data flows
 
--
 ## Intended Audience
 
 Architects and developers responsible for designinging, building, and troubleshooting  Azure Synapse solutions
