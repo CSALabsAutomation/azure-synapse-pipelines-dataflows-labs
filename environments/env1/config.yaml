@@ -1,5 +1,5 @@
-title: On-Premise SQL Server to Azure SQL MI
-description: On-Premise SQL Server to Azure SQL MI
+title: azure-synapse-pipelines-dataflows-labs
+description: azure-synapse-pipelines-dataflows-labs
 type: cloud-environment # cloud-environment|remote-desktop|cli|code-ide
 vendor: azure # aws|azure|google|alibaba-cloud vendor is mandatory if type: cloud-environment|remote-desktop
 language: json # yaml|json (corresponds to template file extension)
