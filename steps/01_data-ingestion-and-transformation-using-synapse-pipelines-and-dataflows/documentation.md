@@ -262,6 +262,8 @@ Select Variable to create below pipeline variables
   
   12.	Drag **Set Variable** activity from General activities and name it as **_``Set tableName``_**
    
+  ![pipeline](./assets/plfe.png "Create pipeline foreach")
+   
   13.	Select Variables section and give Name as **_``tableName``_** and value as **_``@replace(item().name,'.csv','')``_**
    
   ![pipeline](./assets/pl6.png "Create pipeline")
