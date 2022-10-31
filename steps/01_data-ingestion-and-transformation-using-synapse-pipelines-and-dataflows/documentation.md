@@ -244,7 +244,7 @@ Select Variable to create below pipeline variables
   
   6.	After selecting dataset it will be populated with Dataset Properties.
   
-  7.	Use expression builder and Set folderPath to **_``@variables('adworksSourceFolderPath')``_**  using expression builder.
+  7.	Use expression builder and Set folderPath to **_``@variables('adworksSourceFolderPath')``_**
   
   8.	Add FieldList by click on **+New** and select **ChildItem** from selection.
   
