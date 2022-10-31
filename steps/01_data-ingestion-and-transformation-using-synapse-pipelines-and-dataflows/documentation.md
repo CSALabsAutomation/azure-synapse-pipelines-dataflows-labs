@@ -16,11 +16,13 @@ Using dimensional and muli-dimensional pipelines data will be transformed into a
 
   ![ws](./assets/2_open_ws.jpg "open WS")
 
-4. It will be redirected to synapse workspace with **Failed to load** message.
+Note : Synapse Administrator access is already provided and below two steps are only for the learning and knowledge purpose
+
+1. If you dont have the Synapse Administrator access then synapse workspace will promt **Failed to load** message.
 
 ![views](./assets/01_failed.JPG "view WS")
     
-5.	In Synapse Studio, under  **_Manage_** tab, select **_Access Control_** and add yourself as the **_Synapse Administrator_**
+2.	To provide Synapse Administrator access In Synapse Studio, under  **_Manage_** tab, select **_Access Control_** and add yourself as the **_Synapse Administrator_**
 
     ![Access](./assets/4_access.JPG "Access")
   
