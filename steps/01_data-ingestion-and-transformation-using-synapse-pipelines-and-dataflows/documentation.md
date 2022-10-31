@@ -309,7 +309,12 @@ Select Variable to create below pipeline variables
   
   ## Exercise 2 : Run Pipelines for Loading IndependentDimensions and DependentDimensions tables
 
-1. To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
+1. Goto **_Integrate_** option and select pipelines in below mentioned sequence.
+
+- **IndependentDimensions**
+- **DependentDimensions**
+
+2. To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
 
 ![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
 
@@ -327,20 +332,12 @@ Select Variable to create below pipeline variables
 
 >    -Trigger run can be scheduled.
 
-
-
-2. Select **_Integrate_** and execute pipelines in below mentioned sequence.
-
-- **IndependentDimensions**
-
-## Step 1 : DataFlow to load IndependentDimensions
+## DataFlow to load IndependentDimensions
  ![pipeline](./assets/01_independent.jpg "IndependentDimensions pipeline")  
 
-- **DependentDimensions**
-
-## Step 2 : DataFlow to load DependentDimensions
+## DataFlow to load DependentDimensions
  ![pipeline](./assets/01_dependent.jpg "dependentDimensions pipeline")  
- 
+
 
 
 ## Exercise 3 : Create Dataflow – FactSales_DF
