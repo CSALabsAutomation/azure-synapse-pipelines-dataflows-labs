@@ -250,11 +250,11 @@ Select Variable to create below pipeline variables
   
   ![pipeline](./assets/pl4.png "Create pipeline")
   
-  9.	Add Output source as Foreach activity from Iteration & conditionals
+  9.	Add Output source as **Foreach** activity from Iteration & conditionals
   
   ![pipeline](./assets/pl5.png "Create pipeline")
      
-  10.	Give name to foreach activity under section **General**.
+  10.	Give name to **foreach** activity under section **General**. eg. **_``foreachtable_``**
    
   Select Section and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_**
        
