@@ -283,8 +283,9 @@ Select Variable to create below pipeline variables
         
         ![pipeline](./assets/pl8.png "Create pipeline")
         
-  17. Set parameter tableName value as **_``@variables('tableName')``_**
+  17. Set parameter tableName as **Pipeline expression** and value as **_``@variables('tableName')``_**
     
+        ![pipeline](./assets/pldf.jpg "Create pipeline DF")
         ![pipeline](./assets/pl9.png "Create pipeline")
    
   18. Then Validate pipeline by clicking **_Validate_** and Publish it.
