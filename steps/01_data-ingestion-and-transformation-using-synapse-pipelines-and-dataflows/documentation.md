@@ -228,6 +228,7 @@ Select Variable to create below pipeline variables
   
  ii.	Create one more variable with name **_``tableName``_** with empty default value.
   
+  ![pipeline](./assets/plvar.jpg "Create pipeline variable")
   
   2.	Go to pipeline Activities then select and drag **_GetMetadata_** under **General** section 
    
