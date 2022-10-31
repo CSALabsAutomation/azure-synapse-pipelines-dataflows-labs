@@ -325,6 +325,8 @@ Select Variable to create below pipeline variables
 
 >    -Trigger run can be scheduled.
 
+
+
 2. Select **_Integrate_** and execute pipelines in below mentioned sequence.
 
 - **IndependentDimensions**
