@@ -254,7 +254,7 @@ Select Variable to create below pipeline variables
   
   ![pipeline](./assets/pl5.png "Create pipeline")
      
-  10.	Give name to **foreach** activity under section **General**. eg. **_``foreachtable_``**
+  10.	Give name to **foreach** activity under section **General**. eg. **``foreachtable``**
    
   Select Section and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_**
        
