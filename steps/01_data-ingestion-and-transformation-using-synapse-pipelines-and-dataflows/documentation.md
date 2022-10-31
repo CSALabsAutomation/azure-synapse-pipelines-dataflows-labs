@@ -256,7 +256,7 @@ Select Variable to create below pipeline variables
      
   10.	Give name to **foreach** activity under section **General**. eg. **``foreachtable``**
    
-  Select Section and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_**
+  Select Settings and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_**
        
   11.	Double click on **Foreach** activity  to add activities.
   
