@@ -307,7 +307,25 @@ Select Variable to create below pipeline variables
   
   ## Exercise 2 : Run Pipelines for Loading IndependentDimensions and DependentDimensions tables
 
-1. Select **_Integrate_** and execute pipelines in below mentioned sequence.
+1. To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
+
+![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
+
+Below are the main difference between debug run and Trigger run : 
+
+**Debug run:**
+
+-Debug run will execute pipeline with draft changes also, That means lets say you did some changes in pipeline and not published them yet. Still Debug run will execute pipeline by considering that changes as well.
+
+-Debug Run cannot be scheduled. Its always manual run.
+
+**Trigger run:**
+
+-Trigger run will execute pipeline with published version only. Drafted changes made in the pipeline will not be considered in it.
+
+-Trigger run can be scheduled.
+
+2. Select **_Integrate_** and execute pipelines in below mentioned sequence.
 
 - IndependentDimensions
 
@@ -319,9 +337,7 @@ Select Variable to create below pipeline variables
 ## Step 2 : DataFlow to load DependentDimensions
  ![pipeline](./assets/01_dependent.jpg "dependentDimensions pipeline")  
  
-2. To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
 
-![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
 
 ## Exercise 3 : Create Dataflow – FactSales_DF
 
