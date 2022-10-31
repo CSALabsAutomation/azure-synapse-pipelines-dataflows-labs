@@ -213,6 +213,7 @@ In this section, you will use integration datasets for creating a dataflow for l
 
 17. Then click on **Validate** to validate created dataflow. Once dataflow has been validated publish it.
  
+ ![Dataflowpublish](./assets/publishdf.jpg "Data flow publish")
 
 ### Step 3 : Steps to Create Pipeline :
 
