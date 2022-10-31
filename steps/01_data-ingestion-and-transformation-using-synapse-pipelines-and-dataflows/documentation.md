@@ -1,5 +1,6 @@
 # Data ingestion and transformation using Synapse pipelines and data flows
 ## Description:
+copy('Text');
 This lab gives an option to implement and execute Pipeline by typical data integration scenarios, where data flows in different stages.
 A pipeline contains the logical flow for an execution of a set of activities. At first pipeline extracts  source data  from the raw landing zone, then  loads into a staging lake database (adworks).
 Using dimensional and muli-dimensional pipelines data will be transformed into a target database (adworkstarget). 
