@@ -16,7 +16,7 @@ Using dimensional and muli-dimensional pipelines data will be transformed into a
 
   ![ws](./assets/2_open_ws.jpg "open WS")
 
- **Synapse Administrator access is already provided and below two steps are only for the learning and knowledge purpose**
+ ### Note :Synapse Administrator access is already provided and below two steps are only for the learning and knowledge purpose**
 
 1. If you dont have the Synapse Administrator access then synapse workspace will promt **Failed to load** message.
 
