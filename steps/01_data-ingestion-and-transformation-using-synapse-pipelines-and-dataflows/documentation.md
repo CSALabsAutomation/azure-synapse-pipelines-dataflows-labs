@@ -244,7 +244,7 @@ Select Variable to create below pipeline variables
   
   6.	After selecting dataset it will be populated with Dataset Properties.
   
-  7.	Set folderPath to **_``@variables('adworksSourceFolderPath')``_**
+  7.	Use expression builder and Set folderPath to **_``@variables('adworksSourceFolderPath')``_**  using expression builder.
   
   8.	Add FieldList by click on **+New** and select **ChildItem** from selection.
   
@@ -256,7 +256,7 @@ Select Variable to create below pipeline variables
      
   10.	Give name to **foreach** activity under section **General**. eg. **``foreachtable``**
    
-  Select Settings and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_**
+  Select Settings and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_** using expression builder.
        
   11.	Double click on **Foreach** activity  to add activities.
   
@@ -264,7 +264,7 @@ Select Variable to create below pipeline variables
    
   ![pipeline](./assets/plfe.jpg "Create pipeline foreach")
    
-  13.	Select Variables section and give Name as **_``tableName``_** and value as **_``@replace(item().name,'.csv','')``_**
+  13.	Select Variables section and give Name as **_``tableName``_** and value as **_``@replace(item().name,'.csv','')``_** using expression builder.
    
   ![pipeline](./assets/pl6.png "Create pipeline")
       
@@ -277,13 +277,13 @@ Select Variable to create below pipeline variables
    
   16.	Set CSVSourceParamters as below
         
-        -Filename as **_``@item().name``_**
+        -Filename as **_``@item().name``_** using expression builder.
         
-        -Folderpath as  **_``@variables('adworksSourceFolderPath')``_**
+        -Folderpath as  **_``@variables('adworksSourceFolderPath')``_** using expression builder.
         
         ![pipeline](./assets/pl8.png "Create pipeline")
         
-  17. Set parameter tableName as **Pipeline expression** and value as **_``@variables('tableName')``_**
+  17. Set parameter tableName as **Pipeline expression** and value as **_``@variables('tableName')``_** using expression builder.
     
         ![pipeline](./assets/pldf.jpg "Create pipeline DF")
         ![pipeline](./assets/pl9.png "Create pipeline")
@@ -365,7 +365,7 @@ Select Variable to create below pipeline variables
 
 ![schemaModifier](./assets/10-04_schema_modifier.jpg "schema modifier")
 
-4.  Add column with  name **_OrderDateId_** and expression **_toInteger(toString(OrderDate, "yyyyMMdd"))_**
+4.  Add column with  name **_OrderDateId_** and expression **_toInteger(toString(OrderDate, "yyyyMMdd"))_** using expression builder.
 
 ![derivedColumnSettings](./assets/10-05_derived_column_settttings.jpg "derived column settings")
 
