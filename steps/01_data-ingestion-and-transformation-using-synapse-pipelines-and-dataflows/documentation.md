@@ -288,7 +288,10 @@ Select Variable to create below pipeline variables
         ![pipeline](./assets/pldf.jpg "Create pipeline DF")
         ![pipeline](./assets/pl9.png "Create pipeline")
    
-  18. Then Validate pipeline by clicking **_Validate_** and Publish it.
+  18. Then Validate pipeline by clicking **_Validate_** and **_Publish_** it.
+  
+   ![pipeline](./assets/plpiblish.jpg "Create pipeline")
+  
   19. To debug the pipeline, select Debug on the toolbar. You see the status of the pipeline run in the Output tab at the bottom of the window.
   
   ![pipeline](./assets/01_runpipeline.JPG "run pipeline")  
