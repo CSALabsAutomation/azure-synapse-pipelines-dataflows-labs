@@ -299,7 +299,7 @@ Select Variable to create below pipeline variables
   20. To Trigger and monitor the pipeline, Select Add Trigger on the toolbar, and then select Trigger Now. On the Pipeline Run page, select OK.
   21. Go to the Monitor tab located in the left sidebar. You see a pipeline run that is triggered by a manual trigger.
 
-> **_NOTE:_** It will take approx 35-40 mins to for full pipeline run.
+> **_NOTE:_** It will take approx 35-40 mins for full pipeline run.
 
   ![pipeline](./assets/01-Trigger.jpg "Trigger pipeline")  
   
