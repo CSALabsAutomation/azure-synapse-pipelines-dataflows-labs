@@ -97,7 +97,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
 
 1.	Select  **+** under Parameter section to create parameters.
-    Create parameter with Name as *__folderPath__* with default value ```python @dataset().folderPath```
+    Create parameter with Name as *__folderPath__* with default value **``@dataset().folderPath``** 
     
     ![createParameter](./assets/07-raw-create-parameters.jpg "create parameter")
     
