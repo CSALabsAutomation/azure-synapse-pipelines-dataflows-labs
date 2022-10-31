@@ -97,12 +97,12 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
 
 1.	Select  **+** under Parameter section to create parameters.
-    Create parameter with Name as *__folderPath__* with default value **``@dataset().folderPath``**.
+    Create parameter with Name as *__folderPath__* with default value **``@dataset().folderPath``**
     
     ![createParameter](./assets/07-raw-create-parameters.jpg "create parameter")
     
     
-1. 	Under connections set folder path with  parameter value **``@dataset().folderPath``** and set ``first row as Header`` as **True**.
+1. 	Under connections and under filepath set folder path with  parameter value **``@dataset().folderPath``** and set ``first row as Header`` as **True**.
 
     ![setConnections](./assets/07-raw-set-connections.jpg "set connections")
 
@@ -212,6 +212,7 @@ In this section, you will use integration datasets for creating a dataflow for l
  ![Dataflow](./assets/df8.jpg "Create Dataflow")
 
 17. Then click on **Validate** to validate created dataflow. Once dataflow has been validated publish it.
+ 
 
 ### Step 3 : Steps to Create Pipeline :
 
