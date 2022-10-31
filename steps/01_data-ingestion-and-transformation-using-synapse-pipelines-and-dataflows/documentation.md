@@ -1,6 +1,5 @@
 # Data ingestion and transformation using Synapse pipelines and data flows
 ## Description:
-copy('Text');
 This lab gives an option to implement and execute Pipeline by typical data integration scenarios, where data flows in different stages.
 A pipeline contains the logical flow for an execution of a set of activities. At first pipeline extracts  source data  from the raw landing zone, then  loads into a staging lake database (adworks).
 Using dimensional and muli-dimensional pipelines data will be transformed into a target database (adworkstarget). 
@@ -98,7 +97,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
 
 1.	Select  **+** under Parameter section to create parameters.
-    Create parameter with Name as *__folderPath__* with default value **``@dataset().folderPath``**
+    Create parameter with Name as *__folderPath__* with default value ```python**``@dataset().folderPath``**```
     
     ![createParameter](./assets/07-raw-create-parameters.jpg "create parameter")
     
