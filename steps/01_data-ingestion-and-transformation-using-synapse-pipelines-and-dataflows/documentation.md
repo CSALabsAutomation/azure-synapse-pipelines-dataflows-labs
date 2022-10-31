@@ -315,15 +315,15 @@ Select Variable to create below pipeline variables
 
 > - **Debug run:**
 
-> -   -Debug run will execute pipeline with draft changes also, That means lets say you did some changes in pipeline and not published them yet. Still Debug run             will execute pipeline by considering that changes as well.
+>    -Debug run will execute pipeline with draft changes also, That means lets say you did some changes in pipeline and not published them yet. Still Debug run             will execute pipeline by considering that changes as well.
 
- > -  -Debug Run cannot be scheduled. Its always manual run.
+ >   -Debug Run cannot be scheduled. Its always manual run.
 
 > - **Trigger run:**
 
-> -   -Trigger run will execute pipeline with published version only. Drafted changes made in the pipeline will not be considered in it.
+>    -Trigger run will execute pipeline with published version only. Drafted changes made in the pipeline will not be considered in it.
 
-> -   -Trigger run can be scheduled.
+>    -Trigger run can be scheduled.
 
 2. Select **_Integrate_** and execute pipelines in below mentioned sequence.
 
