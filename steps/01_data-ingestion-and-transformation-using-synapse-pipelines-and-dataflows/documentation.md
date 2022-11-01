@@ -352,7 +352,7 @@ Select Variable to create below pipeline variables
 
 ![developDataflows](./assets/10-01_develop_dataflows.jpg "develop dataflows")
 
-2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype as **workspace db** and database as **_adworks_** and select  table **_Sales_**.
+2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype as **_adworks_** and select  table **_Sales_**.
 
 ![addSource](./assets/10-02_add_source.jpg "add source")
 
