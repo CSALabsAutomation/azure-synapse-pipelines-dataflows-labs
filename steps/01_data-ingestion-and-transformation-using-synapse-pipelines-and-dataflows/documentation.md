@@ -312,6 +312,13 @@ Select Variable to create below pipeline variables
 1. Goto **_Integrate_** option and select pipelines in below mentioned sequence.
 
 - **IndependentDimensions**
+
+To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
+
+![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
+
+**Note:** Only proceed further with another pipeline run once the IndependentDimensions pipeline run is completed
+
 - **DependentDimensions**
 
 2. To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
