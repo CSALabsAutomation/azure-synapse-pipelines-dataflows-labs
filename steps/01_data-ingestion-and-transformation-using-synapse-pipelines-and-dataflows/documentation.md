@@ -360,8 +360,10 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
 ## Step 1 : Steps to create Dataflow – FactSales_DF
 
 1.	Open FactSales_DF under **_Develop -> DataFlows -> FactSales_DF_**
+2.	test
 
 ![developDataflows](./assets/10-01_develop_dataflows.jpg "develop dataflows")
+
 
 2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype as **workspace db** and database as **_adworks_** and select  table **_Sales_**.
 
