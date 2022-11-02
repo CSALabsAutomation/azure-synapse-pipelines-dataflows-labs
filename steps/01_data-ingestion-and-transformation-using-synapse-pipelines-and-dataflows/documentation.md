@@ -377,7 +377,7 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
 
 ![derivedColumnSettings](./assets/10-05_derived_column_settttings.jpg "derived column settings")
 
-6.	Add source **_Filter_** to SalesderivedColumn and name it as **_``ResellerFilter``_**
+6.	Add row modifier **_Filter_** to SalesderivedColumn and name it as **_``ResellerFilter``_**
 
 ![sourceFilter](./assets/10-06_source_filter.jpg "source filter")
 
