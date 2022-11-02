@@ -352,13 +352,13 @@ Select Variable to create below pipeline variables
 
 ![developDataflows](./assets/10-01_develop_dataflows.jpg "develop dataflows")
 
-2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype as **_adworks_** and select  table **_Sales_**.
+2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype as **workspace db** and database as **_adworks_** and select  table **_Sales_**.
 
 ![addSource](./assets/10-02_add_source.jpg "add source")
 
 ![sourceSetting](./assets/10-03_source_setting.jpg "source setting")
 
-3.  Select **+** of SalesSource  to add dervived column under section **_schema modifier_** and name it as **_``SalesderivedColumn``_**.
+3.  Select **+** of SalesSource  to add **derived column** under section **_schema modifier_** and name it as **_``SalesderivedColumn``_**.
 
 ![schemaModifier](./assets/10-04_schema_modifier.jpg "schema modifier")
 
@@ -392,9 +392,11 @@ Select Variable to create below pipeline variables
 
 11.	Add source as **_``Select``_** to DimDateKeyLookup and name it as **_``FactSalesSelect``_**
 
+![lookupProduct](./assets/10-11_1_select.jpg "lookup select")
+
 12.	Select options **_Skip duplicate input columns_** and **_Skip duplicate output columns_**
 
-13.	Set input columns as below
+13.	Set input columns as below. Keep the below mapping and remove the other to have limited column in the fact sales source.
 
 ![selectInput](./assets/10-12_select_input.png "select input")
 
@@ -445,7 +447,7 @@ Select Variable to create below pipeline variables
  
      ![relationships](./assets/12-relationship_tab.jpg "relationships")
 
-1) For **_FactSales_** you need to create a relationship. Select a column **_``OrderDateKey``_** from **_FactSales_** tables(from table) and map it with **_``DateKey``_** column of **_DimTable_**( To Table) .
+1) For **_FactSales_** you need to create a relationship. Select a column **_``OrderDateKey``_** from **_FactSales_** tables(from table) and map it with **_``datekeyaltered``_** column of **_DimDate_**( To Table) .
 
 1) Repeat step 9 and 10 to create remaining relationships for **_FactSales_** table. Make sure you create all the 5 relationships same as mentioned in below snapshot.
 
