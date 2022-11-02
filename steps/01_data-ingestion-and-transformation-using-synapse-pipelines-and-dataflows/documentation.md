@@ -447,7 +447,7 @@ Select Variable to create below pipeline variables
  
      ![relationships](./assets/12-relationship_tab.jpg "relationships")
 
-1) For **_FactSales_** you need to create a relationship. Select a column **_``OrderDateKey``_** from **_FactSales_** tables(from table) and map it with **_``datekeyaltered``_** column of **_DimDate_**( To Table) .
+1) For **_FactSales_** you need to create a relationship. Select a column **_``OrderDateKey``_** from **_FactSales_** tables(from table) and map it with **_``DateKeyAltered``_** column of **_DimDate_**( To Table) .
 
 1) Repeat step 9 and 10 to create remaining relationships for **_FactSales_** table. Make sure you create all the 5 relationships same as mentioned in below snapshot.
 
