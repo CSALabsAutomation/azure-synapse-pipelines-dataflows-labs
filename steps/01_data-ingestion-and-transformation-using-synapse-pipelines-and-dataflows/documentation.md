@@ -431,6 +431,9 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
 
 ![selectInput](./assets/10-12_select_input.png "select input")
 
+> **_NOTE:_** Need to change the mapping of last column ie **Date_lookup**
+
+
 14.	Add source as **_``Sink``_** for destination to **_FactSalesSelect_** and name it as **_``FactSalesSink``_**
 
 ![sourceSink](./assets/10-13_source_sink.jpg "source sink")
@@ -448,6 +451,9 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
  ## Step 2 : Run Pipelines for Loading Fact tables
 
 1. Select **_Integrate_** and execute pipeline - **_FactTables_** .
+
+> **_NOTE:_** It will take approx 5-10 mins for this pipeline run.
+
 2.  After successfull execution of pipeline, verify loaded data under Data--> Lake database (adworkstarget)-->FactSales (Table) --> run select script with New SQL Script option.
 
 ## Exercise 4 : Relationship between dimension and fact tables
@@ -480,7 +486,7 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
 
 1) For **_FactSales_** you need to create a relationship. Select a column **_``OrderDateKey``_** from **_FactSales_** tables(from table) and map it with **_``DateKeyAltered``_** column of **_DimDate_**( To Table) .
 
-1) Repeat step 9 and 10 to create remaining relationships for **_FactSales_** table. Make sure you create all the 5 relationships same as mentioned in below snapshot.
+1) Repeat above two steps to create remaining relationships for **_FactSales_** table. Make sure you create all the 5 relationships same as mentioned in below snapshot.
 
     ![table_relationships](./assets/12-table_column_relations.jpg "table relationships")
 
