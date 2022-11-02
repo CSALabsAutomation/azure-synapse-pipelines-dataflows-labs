@@ -360,16 +360,34 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
 ## Step 1 : Steps to create Dataflow – FactSales_DF
 
 1.	Open FactSales_DF under **_Develop -> DataFlows -> FactSales_DF_**
-2.	test
 
 ![developDataflows](./assets/10-01_develop_dataflows.jpg "develop dataflows")
-
 
 2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype as **workspace db** and database as **_adworks_** and select  table **_Sales_**.
 
 ![addSource](./assets/10-02_add_source.jpg "add source")
 
 ![sourceSetting](./assets/10-03_source_setting.jpg "source setting")
+
+   a. Turn on the **Data flow debug** 
+   
+   ![Dataflowdebug](./assets/01dataflow.jpg "Data flow debug")
+   
+   It will take 4-5 mins to turn on and will get below notification when turn on.
+   
+   ![Dataflowdebug](./assets/02dataflowready.jpg "Data flow ready")
+   
+   b. Goto **Projection** and click on **Import Schema**
+    
+   ![importschema](./assets/03importschema.jpg "import schema")
+   
+   Cloumns will be visible after import is complete
+   
+   ![importschema](./assets/04schema.jpg "import schema")
+   
+   c. Turn off the **Data flow debug** 
+   
+   ![dataflowclose](./assets/05dataflowclose.jpg "data flow close")
 
 3.  Select **+** of SalesSource  to add **derived column** under section **_schema modifier_** and name it as **_``SalesderivedColumn``_**.
 
@@ -405,7 +423,7 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
 
 11.	Add source as **_``Select``_** to DimDateKeyLookup and name it as **_``FactSalesSelect``_**
 
-![lookupProduct](./assets/10-11_1_select.jpg "lookup select")
+![lookupProduct](./assets/06select.jpg "lookup select")
 
 12.	Select options **_Skip duplicate input columns_** and **_Skip duplicate output columns_**
 
