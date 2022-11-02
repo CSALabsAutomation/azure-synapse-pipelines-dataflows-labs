@@ -315,13 +315,17 @@ Select Variable to create below pipeline variables
 
 To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
 
+> **_NOTE:_** It will take approx 15-20 mins for this pipeline run.
+
 ![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
 
 **Note:** Only proceed further with another pipeline run once the IndependentDimensions pipeline run is completed
 
 - **DependentDimensions**
 
-2. To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
+ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
+
+ > **_NOTE:_** It will take approx 5-10 mins for this pipeline run.
 
 ![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
 
@@ -385,7 +389,7 @@ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under 
 
 ![lookup](./assets/10-08_lookup.jpg "lookup")
 
-8.	Select  Lookup stream as **_``ResellerCustomerSelect``_** from dropdown and add lookup condition as **_``ResellerID == ResellerId_lookup``_**
+8.	Select  Lookup stream as **_``ResellerCustomerSelect``_** from dropdown and add lookup condition as **_``toString(ResellerId) == ResellerId_lookup``_**
 
 ![lookupStream](./assets/10-09_lookup_stream.jpg "lookup stream")
 
