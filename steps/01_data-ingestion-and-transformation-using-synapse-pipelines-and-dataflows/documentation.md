@@ -62,7 +62,20 @@ Retail includes the following technical assets
 
 ## Exercise 1 : Create and run pipeline using the Data flow for loading the data to Lake database
 
-In this section, you will use data flow for creating a pipeline for loading data into lake database.
+Following are the overview of steps perfomed in this exercise:
+
+1.	AdventureWorksDW2019 csv files (Calendar, ChannelType, Country, CustomerData, Location, ProductData, Reseller, Sales, SalesOrder and SalesTerritory) are stored in ADLS Gen 2 container path ‘raw/SynapseRetailFiles’ and a Lake Database (adworks) having table schema (similar to above files) are created as part of lab setup.
+
+2.	Two Integration Datasets namely ‘raw’ and ‘adworksraw’ are created. One pointing to folder and other pointing to files inside folder respectively.
+
+3.	Dataflow is created with source activity as one of the above integration dataset (adworksraw) which points to files inside folder and sink activity connecting to workspace lake database(adworks) tables.
+
+4.	Pipeline is created with Get Metadata activity which connects to other integration dataset (raw) pointing to folder to get metadata information of all ChildItems (files) inside folder and a Foreach loop activity.
+
+5.	Inside Foreach loop there is a Set Variable section to get table names from the file name and a DataFlow activity created above. This Foreachloop runs sequentially executing dataflow for given number of files present which copies files data to respective tables.
+
+6.	folderpath and filenames are not hardcoded and its values are obtained using pipeline and dataflow variables.
+
 
 ## DataFlow
 
@@ -306,6 +319,21 @@ Select Variable to create below pipeline variables
   22. After successfull execution of pipeline, verify loaded data under Data--> Lake database (adworks) --> run select script with New SQL Script option.
   
    ![adworks script](./assets/01_LoadSQL.jpg "adworks script")    
+   
+     
+  ### Following are the overview of steps performed in below all exercises:
+  
+Once source data is available (from previous exercise) next objective is to transform data into a datawarehouse establishing accurate relationship between     dimensions and fact and visualize the datamodel. 
+
+1.	Dimensions (DimProduct, DimGeography, DimCustomer, DimDate and DimChannel) creation are prebuilt using dataflows and are classified into independent and dependent dimensions pipeline as part of lab setup, which needs to be only executed.
+
+2.	DataFlow namely ‘FactSales_DF’ should be completed mainly by creating Fact_Sales from Sales table as source along with lookups from Reseller table, DimProduct and DimDate. Transformation on Reseller table is already incorporated in the dataflow and DimProduct and DimDate are available from above dimension creation.
+
+3.	‘adworkstarget’ lake database is used target datawarehouse.
+
+4.	Once dimension and fact tables are available relationship between are established using MapData in lake database.
+
+5.	Using PowerBI desktop connection is established to synapse workspace and lake database datamodel is used for visualization.
   
   ## Exercise 2 : Run Pipelines for Loading IndependentDimensions and DependentDimensions tables
 
