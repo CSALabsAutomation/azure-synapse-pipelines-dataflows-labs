@@ -396,7 +396,7 @@ Select Variable to create below pipeline variables
 
 13.	Set input columns as below
 
-![selectInput](./assets/10-12_select_input.jpg "select input")
+![selectInput](./assets/10-12_select_input.png "select input")
 
 14.	Add source as **_``Sink``_** for destination to **_FactSalesSelect_** and name it as **_``FactSalesSink``_**
 
