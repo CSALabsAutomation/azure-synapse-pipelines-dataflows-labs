@@ -16,11 +16,13 @@ Using dimensional and muli-dimensional pipelines data will be transformed into a
 
   ![ws](./assets/2_open_ws.jpg "open WS")
 
-4. It will be redirected to synapse workspace with **Failed to load** message.
+### Note : Synapse Administrator access is already provided and below two steps are only for the learning and knowledge purpose
+
+1. If you dont have the Synapse Administrator access then synapse workspace will promt **Failed to load** message.
 
 ![views](./assets/01_failed.JPG "view WS")
     
-5.	In Synapse Studio, under  **_Manage_** tab, select **_Access Control_** and add yourself as the **_Synapse Administrator_**
+2.	To provide Synapse Administrator access In Synapse Studio, under  **_Manage_** tab, select **_Access Control_** and add yourself as the **_Synapse Administrator_**
 
     ![Access](./assets/4_access.JPG "Access")
   
@@ -60,7 +62,20 @@ Retail includes the following technical assets
 
 ## Exercise 1 : Create and run pipeline using the Data flow for loading the data to Lake database
 
-In this section, you will use data flow for creating a pipeline for loading data into lake database.
+Following are the overview of steps perfomed in this exercise:
+
+1.	AdventureWorksDW2019 csv files (Calendar, ChannelType, Country, CustomerData, Location, ProductData, Reseller, Sales, SalesOrder and SalesTerritory) are stored in ADLS Gen 2 container path ‘raw/SynapseRetailFiles’ and a Lake Database (adworks) having table schema (similar to above files) are created as part of lab setup.
+
+2.	Two Integration Datasets namely ‘raw’ and ‘adworksraw’ are created. One pointing to folder and other pointing to files inside folder respectively.
+
+3.	Dataflow is created with source activity as one of the above integration dataset (adworksraw) which points to files inside folder and sink activity connecting to workspace lake database(adworks) tables.
+
+4.	Pipeline is created with Get Metadata activity which connects to other integration dataset (raw) pointing to folder to get metadata information of all ChildItems (files) inside folder and a Foreach loop activity.
+
+5.	Inside Foreach loop there is a Set Variable section to get table names from the file name and a DataFlow activity created above. This Foreachloop runs sequentially executing dataflow for given number of files present which copies files data to respective tables.
+
+6.	folderpath and filenames are not hardcoded and its values are obtained using pipeline and dataflow variables.
+
 
 ## DataFlow
 
@@ -95,12 +110,12 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
 
 1.	Select  **+** under Parameter section to create parameters.
-    Create parameter with Name as *__folderPath__* with default value **``@dataset().folderPath``**.
+    Create parameter with Name as *__folderPath__* with default value **``@dataset().folderPath``** 
     
     ![createParameter](./assets/07-raw-create-parameters.jpg "create parameter")
     
     
-1. 	Under connections set folder path with  parameter value **``@dataset().folderPath``** and set ``first row as Header`` as **True**.
+1. 	Under connections and under filepath set folder path with  parameter value **``@dataset().folderPath``** and set ``first row as Header`` as **True**.
 
     ![setConnections](./assets/07-raw-set-connections.jpg "set connections")
 
@@ -132,14 +147,14 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
 1.	Select **+** under Parameter section to create parameters
     Create below mentioned two parameter:
     
-       i.	Name as **``fileName``** with default value **``@dataset().fileName``**.
+       i.	Name as **``fileName``** with default value **``@dataset().fileName``**
        
-      ii.	Name as **``folderPath``** with default value **``@dataset().folderPath``**.
+      ii.	Name as **``folderPath``** with default value **``@dataset().folderPath``**
     
     ![createParameter](./assets/07-adwork-create-parameters.jpg "create parameter")
 
-1.  Under connections set folder path with  parameter value **``@dataset().folderPath``**.
-    set filename as **``@dataset().fileName``** and set first row as Header as **``True``**.
+1.  Under connections set folder path with  parameter value **``@dataset().folderPath``**
+    set filename as **``@dataset().fileName``** and set first row as Header as **``True``**
     
     ![setConnections](./assets/07-adwork-set-connections.jpg "set connections")
 
@@ -210,6 +225,8 @@ In this section, you will use integration datasets for creating a dataflow for l
  ![Dataflow](./assets/df8.jpg "Create Dataflow")
 
 17. Then click on **Validate** to validate created dataflow. Once dataflow has been validated publish it.
+ 
+ ![Dataflowpublish](./assets/publishdf.jpg "Data flow publish")
 
 ### Step 3 : Steps to Create Pipeline :
 
@@ -224,6 +241,7 @@ Select Variable to create below pipeline variables
   
  ii.	Create one more variable with name **_``tableName``_** with empty default value.
   
+  ![pipeline](./assets/plvar.jpg "Create pipeline variable")
   
   2.	Go to pipeline Activities then select and drag **_GetMetadata_** under **General** section 
    
@@ -239,25 +257,27 @@ Select Variable to create below pipeline variables
   
   6.	After selecting dataset it will be populated with Dataset Properties.
   
-  7.	Set folderPath to **_``@variables('adworksSourceFolderPath')``_**
+  7.	Use expression builder and Set folderPath to **_``@variables('adworksSourceFolderPath')``_**
   
   8.	Add FieldList by click on **+New** and select **ChildItem** from selection.
   
   ![pipeline](./assets/pl4.png "Create pipeline")
   
-  9.	Add Output source as Foreach activity from Iteration & conditionals
+  9.	Add Output source as **Foreach** activity from Iteration & conditionals
   
   ![pipeline](./assets/pl5.png "Create pipeline")
      
-  10.	Give name to foreach activity under section **General**.
+  10.	Give name to **foreach** activity under section **General**. eg. **``foreachtable``**
    
-  Select Section and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_**
+  Select Settings and select Sequential as **True** and  mention Items as **_``@activity('Get File List').output.childItems``_** using expression builder.
        
   11.	Double click on **Foreach** activity  to add activities.
   
   12.	Drag **Set Variable** activity from General activities and name it as **_``Set tableName``_**
    
-  13.	Select Variables section and give Name as **_``tableName``_** and value as **_``@replace(item().name,'.csv','')``_**
+  ![pipeline](./assets/plfe.jpg "Create pipeline foreach")
+   
+  13.	Select Variables section and give Name as **_``tableName``_** and value as **_``@replace(item().name,'.csv','')``_** using expression builder.
    
   ![pipeline](./assets/pl6.png "Create pipeline")
       
@@ -270,17 +290,21 @@ Select Variable to create below pipeline variables
    
   16.	Set CSVSourceParamters as below
         
-        -Filename as **_``@item().name``_**
+        -Filename as **_``@item().name``_** using expression builder.
         
-        -Folderpath as  **_``@variables('adworksSourceFolderPath')``_**
+        -Folderpath as  **_``@variables('adworksSourceFolderPath')``_** using expression builder.
         
         ![pipeline](./assets/pl8.png "Create pipeline")
         
-  17. Set parameter tableName value as **_``@variables('tableName')``_**
+  17. Set parameter tableName as **Pipeline expression** and value as **_``@variables('tableName')``_** using expression builder.
     
+        ![pipeline](./assets/pldf.jpg "Create pipeline DF")
         ![pipeline](./assets/pl9.png "Create pipeline")
    
-  18. Then Validate pipeline by clicking **_Validate_** and Publish it.
+  18. Then Validate pipeline by clicking **_Validate_** and **_Publish_** it.
+  
+   ![pipeline](./assets/plpublish.jpg "Create pipeline")
+  
   19. To debug the pipeline, select Debug on the toolbar. You see the status of the pipeline run in the Output tab at the bottom of the window.
   
   ![pipeline](./assets/01_runpipeline.JPG "run pipeline")  
@@ -288,29 +312,72 @@ Select Variable to create below pipeline variables
   20. To Trigger and monitor the pipeline, Select Add Trigger on the toolbar, and then select Trigger Now. On the Pipeline Run page, select OK.
   21. Go to the Monitor tab located in the left sidebar. You see a pipeline run that is triggered by a manual trigger.
 
+> **_NOTE:_** It will take approx 35-40 mins for full pipeline run.
+
   ![pipeline](./assets/01-Trigger.jpg "Trigger pipeline")  
   
   22. After successfull execution of pipeline, verify loaded data under Data--> Lake database (adworks) --> run select script with New SQL Script option.
   
    ![adworks script](./assets/01_LoadSQL.jpg "adworks script")    
+   
+     
+  ### Following are the overview of steps performed in below all exercises:
+  
+Once source data is available (from previous exercise) next objective is to transform data into a datawarehouse establishing accurate relationship between     dimensions and fact and visualize the datamodel. 
+
+1.	Dimensions (DimProduct, DimGeography, DimCustomer, DimDate and DimChannel) creation are prebuilt using dataflows and are classified into independent and dependent dimensions pipeline as part of lab setup, which needs to be only executed.
+
+2.	DataFlow namely ‘FactSales_DF’ should be completed mainly by creating Fact_Sales from Sales table as source along with lookups from Reseller table, DimProduct and DimDate. Transformation on Reseller table is already incorporated in the dataflow and DimProduct and DimDate are available from above dimension creation.
+
+3.	‘adworkstarget’ lake database is used target datawarehouse.
+
+4.	Once dimension and fact tables are available relationship between are established using MapData in lake database.
+
+5.	Using PowerBI desktop connection is established to synapse workspace and lake database datamodel is used for visualization.
   
   ## Exercise 2 : Run Pipelines for Loading IndependentDimensions and DependentDimensions tables
 
-1. Select **_Integrate_** and execute pipelines in below mentioned sequence.
+1. Goto **_Integrate_** option and select pipelines in below mentioned sequence.
 
-- IndependentDimensions
+- **IndependentDimensions**
 
-## Step 1 : DataFlow to load IndependentDimensions
- ![pipeline](./assets/01_independent.jpg "IndependentDimensions pipeline")  
+To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
 
-- DependentDimensions
-
-## Step 2 : DataFlow to load DependentDimensions
- ![pipeline](./assets/01_dependent.jpg "dependentDimensions pipeline")  
- 
-2. To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
+> **_NOTE:_** It will take approx 15-20 mins for this pipeline run.
 
 ![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
+
+**Note:** Only proceed further with another pipeline run once the IndependentDimensions pipeline run is completed
+
+- **DependentDimensions**
+
+ To run pipeline,  click on **_Debug_** or select **_Trigger Now_** option under **_Add Trigger_**
+
+ > **_NOTE:_** It will take approx 5-10 mins for this pipeline run.
+
+![RunPipelines](./assets/11-1_execute_pipelines.jpg "Run Pipelines")
+
+ > **_NOTE:_** Below are the main difference between debug run and Trigger run : 
+
+> - **Debug run:**
+
+>    -Debug run will execute pipeline with draft changes also, That means lets say you did some changes in pipeline and not published them yet. Still Debug run             will execute pipeline by considering that changes as well.
+
+ >   -Debug Run cannot be scheduled. Its always manual run.
+
+> - **Trigger run:**
+
+>    -Trigger run will execute pipeline with published version only. Drafted changes made in the pipeline will not be considered in it.
+
+>    -Trigger run can be scheduled.
+
+## DataFlow to load IndependentDimensions
+ ![pipeline](./assets/01_independent.jpg "IndependentDimensions pipeline")  
+
+## DataFlow to load DependentDimensions
+ ![pipeline](./assets/01_dependent.jpg "dependentDimensions pipeline")  
+
+
 
 ## Exercise 3 : Create Dataflow – FactSales_DF
 
@@ -324,21 +391,41 @@ Select Variable to create below pipeline variables
 
 ![developDataflows](./assets/10-01_develop_dataflows.jpg "develop dataflows")
 
-2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype **_adworks_** and select  table **_Sales_**.
+2.  Select AddSource  and name it as **_SalesSource_**,  add   sourcetype as **workspace db** and database as **_adworks_** and select  table **_Sales_**.
 
 ![addSource](./assets/10-02_add_source.jpg "add source")
 
 ![sourceSetting](./assets/10-03_source_setting.jpg "source setting")
 
-3.  Select **+** of SalesSource  to add dervived column under section **_schema modifier_** and name it as **_``SalesderivedColumn``_**.
+   a. Turn on the **Data flow debug** 
+   
+   ![Dataflowdebug](./assets/01dataflow.jpg "Data flow debug")
+   
+   It will take 4-5 mins to turn on and will get below notification when turn on.
+   
+   ![Dataflowdebug](./assets/02dataflowready.jpg "Data flow ready")
+   
+   b. Goto **Projection** and click on **Import Schema**
+    
+   ![importschema](./assets/03importschema.jpg "import schema")
+   
+   Cloumns will be visible after import is complete
+   
+   ![importschema](./assets/04schema.jpg "import schema")
+   
+   c. Turn off the **Data flow debug** 
+   
+   ![dataflowclose](./assets/05dataflowclose.jpg "data flow close")
+
+3.  Select **+** of SalesSource  to add **derived column** under section **_schema modifier_** and name it as **_``SalesderivedColumn``_**.
 
 ![schemaModifier](./assets/10-04_schema_modifier.jpg "schema modifier")
 
-4.  Add column with  name **_OrderDateId_** and expression **_toInteger(toString(OrderDate, "yyyyMMdd"))_**
+4.  Add column with  name **_OrderDateId_** and expression **_toInteger(toString(OrderDate, "yyyyMMdd"))_** using expression builder.
 
 ![derivedColumnSettings](./assets/10-05_derived_column_settttings.jpg "derived column settings")
 
-6.	Add source **_Filter_** to SalesderivedColumn and name it as **_``ResellerFilter``_**
+6.	Add row modifier **_Filter_** to SalesderivedColumn and name it as **_``ResellerFilter``_**
 
 ![sourceFilter](./assets/10-06_source_filter.jpg "source filter")
 
@@ -350,7 +437,7 @@ Select Variable to create below pipeline variables
 
 ![lookup](./assets/10-08_lookup.jpg "lookup")
 
-8.	Select  Lookup stream as **_``ResellerCustomerSelect``_** from dropdown and add lookup condition as **_``ResellerID == ResellerId_lookup``_**
+8.	Select  Lookup stream as **_``ResellerCustomerSelect``_** from dropdown and add lookup condition as **_``toString(ResellerId) == ResellerId_lookup``_**
 
 ![lookupStream](./assets/10-09_lookup_stream.jpg "lookup stream")
 
@@ -364,11 +451,16 @@ Select Variable to create below pipeline variables
 
 11.	Add source as **_``Select``_** to DimDateKeyLookup and name it as **_``FactSalesSelect``_**
 
+![lookupProduct](./assets/06select.jpg "lookup select")
+
 12.	Select options **_Skip duplicate input columns_** and **_Skip duplicate output columns_**
 
-13.	Set input columns as below
+13.	Set input columns as below. Keep the below mapping and remove the other to have limited column in the fact sales source.
 
-![selectInput](./assets/10-12_select_input.jpg "select input")
+![selectInput](./assets/10-12_select_input.png "select input")
+
+> **_NOTE:_** Need to change the mapping of last column ie **Date_lookup**
+
 
 14.	Add source as **_``Sink``_** for destination to **_FactSalesSelect_** and name it as **_``FactSalesSink``_**
 
@@ -387,6 +479,9 @@ Select Variable to create below pipeline variables
  ## Step 2 : Run Pipelines for Loading Fact tables
 
 1. Select **_Integrate_** and execute pipeline - **_FactTables_** .
+
+> **_NOTE:_** It will take approx 5-10 mins for this pipeline run.
+
 2.  After successfull execution of pipeline, verify loaded data under Data--> Lake database (adworkstarget)-->FactSales (Table) --> run select script with New SQL Script option.
 
 ## Exercise 4 : Relationship between dimension and fact tables
@@ -417,9 +512,9 @@ Select Variable to create below pipeline variables
  
      ![relationships](./assets/12-relationship_tab.jpg "relationships")
 
-1) For **_FactSales_** you need to create a relationship. Select a column **_``OrderDateKey``_** from **_FactSales_** tables(from table) and map it with **_``DateKey``_** column of **_DimTable_**( To Table) .
+1) For **_FactSales_** you need to create a relationship. Select a column **_``OrderDateKey``_** from **_FactSales_** tables(from table) and map it with **_``DateKeyAltered``_** column of **_DimDate_**( To Table) .
 
-1) Repeat step 9 and 10 to create remaining relationships for **_FactSales_** table. Make sure you create all the 5 relationships same as mentioned in below snapshot.
+1) Repeat above two steps to create remaining relationships for **_FactSales_** table. Make sure you create all the 5 relationships same as mentioned in below snapshot.
 
     ![table_relationships](./assets/12-table_column_relations.jpg "table relationships")
 
