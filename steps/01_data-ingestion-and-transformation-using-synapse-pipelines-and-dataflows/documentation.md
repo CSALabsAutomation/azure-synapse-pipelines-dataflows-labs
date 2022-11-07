@@ -5,6 +5,15 @@ A pipeline contains the logical flow for an execution of a set of activities. At
 Using dimensional and muli-dimensional pipelines data will be transformed into a target database (adworkstarget). 
 
 ## Prerequisites:
+
+### Note azure raw datalake storage account
+
+1. In the **Resource groups** blade, Sort the resorces by Type where you can see three storage account.
+   Raw datalake storage account is one that starts with **azrawdatalake** followed by random string. Note down same as this will ve used many time as we proceed with 
+   this lab.
+   
+   ![Note azure raw datalake storage account](./assets/rawlakestorage.JPG "rawstorageaccount")  
+
 ### Log-in to the Azure Portal
 1. In a new window, sign in to the **Azure Portal** (<https://portal.azure.com>).
 
