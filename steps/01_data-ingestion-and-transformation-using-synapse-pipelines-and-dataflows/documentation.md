@@ -12,7 +12,7 @@ Using dimensional and muli-dimensional pipelines data will be transformed into a
    Raw datalake storage account is one that starts with **azrawdatalake** followed by random string. Note down same as this will ve used many time as we proceed with 
    this lab.
    
-   ![Note azure raw datalake storage account](./assets/rawlakestorage.JPG "rawstorageaccount")  
+   ![Note azure raw datalake storage account](./assets/rawlakestorage.jpg "rawstorageaccount")  
 
 ### Log-in to the Azure Portal
 1. In a new window, sign in to the **Azure Portal** (<https://portal.azure.com>).
