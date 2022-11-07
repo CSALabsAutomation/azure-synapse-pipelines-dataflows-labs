@@ -108,7 +108,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
 
     ![dataformat](./assets/07-raw-data-format.jpg "data format")
 
-1.	Set properties by giving Name as **``raw``**  and select  *__azure raw data lake storage account__* as linked service.
+1.	Set properties by giving Name as **``raw``**  and select  *__azure raw data lake storage account__* as linked service.(Refer Prerequisites for getting the raw data    lake storage account name)
 
 1.	Set the  filepath to **``raw/SynapseRetailFiles``** and select **OK** .
     
@@ -144,7 +144,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
     
     ![dataformat](./assets/07-adwork-data-format.jpg "data format")
 
-1.	Set properties by giving Name as **``adworksraw``**  and select  *__azure raw data lake storage account__* as linked service.
+1.	Set properties by giving Name as **``adworksraw``**  and select  *__azure raw data lake storage account__* as linked service.(Refer Prerequisites for getting the      raw datalake storage account name)
     
      ![setProperties](./assets/07-adwork-set-properties.jpg "set properties")
 
