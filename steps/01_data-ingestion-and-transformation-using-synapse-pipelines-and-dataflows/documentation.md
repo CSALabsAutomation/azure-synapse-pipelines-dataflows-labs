@@ -323,7 +323,7 @@ Select Variable to create below pipeline variables
 
 > **_NOTE:_** It will take approx 35-40 mins for full pipeline run.
 
-  ![pipeline](./assets/01-Trigger01.jpg "Trigger pipeline")  
+  ![pipeline](./assets/01-Trigger.jpg "Trigger pipeline")  
   
   22. After successfull execution of pipeline, verify loaded data under Data--> Lake database (adworks) --> run select script with New SQL Script option.
   
@@ -603,20 +603,23 @@ Click on **_download_** will redirect to Microsoft Store where you can get the P
 ![page1](./assets/p12.jpg "page1")
 
 4. Click on **_+_** button below for adding new page
-5. Select **_Pie chart_** from the visualizations and Select **_SalesAmount_** from FactSales as Y axis and **_channel_** from DimChannel as x axis.
-6. In the same page select **_stacked column chart_** and Select **_OrderQuantity_** from FactSales as Y axis and **_channel_** from DimChannel as x axis.
+5. Select **_Pie chart_** from the visualizations and Select **_SalesAmount_** from FactSales as Values and **_channel_** from DimChannel as Legend.
+
+![page2](./assets/pie.jpg "pie")
+
+7. In the same page select **_stacked column chart_** and Select **_OrderQuantity_** from FactSales as Y-axis and **_channel_** from DimChannel as X-axis.
 
 ![page2](./assets/p2.jpg "page2")
 
-7. In the new page select **_stacked bar chart_** and Select **_SalesAmount_** from FactSales as Y axis and **_Customer_** from DimCustomer as x axis.
+7. In the new page select **_stacked bar chart_** and Select **_SalesAmount_** from FactSales as X-axis and **_Customer_** from DimCustomer as Y-axis.
 
 ![page3](./assets/p3.jpg "page3")
 
-8. In the new page select **_stacked bar chart_** and Select **_SalesAmount_** from **_FactSales_** as Y axis and **_CountryRegion_** from DimGeoraphy as x axis and **_city_** as legend.
+8. In the new page select **_stacked bar chart_** and Select **_SalesAmount_** from **_FactSales_** as X-axis and **_CountryRegion_** from DimGeoraphy as Y-axis and **_city_** as legend.
 
 ![page4](./assets/p4.jpg "page4")
 
-9. In the new page select **_clustered column chart_** and Select **_SalesAmount_** from FactSales as Y axis and **_Date_** from DimDate as x axis.
+9. In the new page select **_clustered column chart_** and Select **_SalesAmount_** from FactSales as Y-axis and **_Date_** from DimDate as X-axis.
 
 ![page5](./assets/p5.jpg "page5")
 
