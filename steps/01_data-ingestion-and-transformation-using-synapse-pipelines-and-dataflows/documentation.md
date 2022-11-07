@@ -325,7 +325,7 @@ Select Variable to create below pipeline variables
 
 > **_NOTE:_** It will take approx 35-40 mins for full pipeline run.
 
-  ![pipeline](./assets/01-Trigger.jpg "Trigger pipeline")  
+  ![pipeline](./assets/01-Trigger01.jpg "Trigger pipeline")  
   
   22. After successfull execution of pipeline, verify loaded data under Data--> Lake database (adworks) --> run select script with New SQL Script option.
   
