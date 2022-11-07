@@ -115,6 +115,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
     ![setProperties](./assets/07-raw-set-properties.jpg "set properties")
 
 1.  **Clear** schema under section **_Schema_**.
+
      Note : If you miss to clear the schema then you may see the extra columns while querying the tables. 
      
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
@@ -151,6 +152,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
 1.	Set the  filepath to **``raw/SynapseRetailFiles``** and select **OK** .
 
 1.  **Clear** schema under section **_Schema_**.
+
     Note : If you miss to clear the schema then you may see the extra columns while querying the tables. 
    
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
