@@ -115,7 +115,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
 
 1.  **Clear** schema under section **_Schema_**.
 
-     Note : If you miss to clear the schema then you may see the extra columns while querying the tables. 
+     Note : If clear schema is not selected then there will be extra columns in the table like Column1, Column2 etc.
      
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
 
@@ -152,7 +152,7 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
 
 1.  **Clear** schema under section **_Schema_**.
 
-    Note : If you miss to clear the schema then you may see the extra columns while querying the tables. 
+    Note : If clear schema is not selected then there will be extra columns in the table like Column1, Column2 etc.
    
     ![setProperties](./assets/07-adworks_raw_clear.jpg "set properties")   
 
