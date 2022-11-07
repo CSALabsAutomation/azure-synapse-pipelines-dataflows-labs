@@ -124,6 +124,9 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
     
     ![createParameter](./assets/07-raw-create-parameters.jpg "create parameter")
     
+    Note : folderpath default value will be replaced with actual FolderName where csv files are stored in later steps 
+    through pipeline variables. Actual folderpath being 'raw/SynapseRetailFiles'.
+    
     
 1. 	Under connections and under filepath set folder path with  parameter value **``@dataset().folderPath``** and set ``first row as Header`` as **True**.
 
@@ -164,6 +167,8 @@ In this section, you will use ADLS Gen2 Storage to create datasets. These datase
       ii.	Name as **``folderPath``** with default value **``@dataset().folderPath``**
     
     ![createParameter](./assets/07-adwork-create-parameters.jpg "create parameter")
+    
+    Note : folderpath and filepath default value will be replaced with actual FolderName and FileNames where csv files are stored in later steps through Pipeline         variables. Actual folderpath being 'raw/SynapseRetailFiles' and filepath being 'item().name' which refers FileName inside foreach loop.
 
 1.  Under connections set folder path with  parameter value **``@dataset().folderPath``**
     set filename as **``@dataset().fileName``** and set first row as Header as **``True``**
@@ -185,6 +190,8 @@ In this section, you will use integration datasets for creating a dataflow for l
 2.	Create new Parameter and name as **_``tableName``_** and leave **_Defaultvalue_** as empty.
 
  ![Dataflow](./assets/df3.jpg "Create Dataflow")
+ 
+ Note : tableName default values will be replaced by csv FileNames in later steps through set variable activity and Pipeline variables.d
  
 3.	In the data flow canvas, add a source by clicking on the **AddSource** box.
 
@@ -223,6 +230,8 @@ In this section, you will use integration datasets for creating a dataflow for l
 14.   Open expression builder and select Table as **_``$tableName``_**.
 
    ![Dataflow](./assets/exp.jpg "Create Dataflow")
+   
+   Note : No specific tables are selected initially '$tableName' value will be populated in later steps using expression '@replace(item().name,'.csv','')' where        item().name refers FileName inside foreach loop.
 
 15.	Select **_Recreate table_** as Table action under settings.
 
