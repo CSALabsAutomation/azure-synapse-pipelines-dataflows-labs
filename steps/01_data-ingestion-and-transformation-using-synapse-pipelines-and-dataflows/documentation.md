@@ -6,7 +6,7 @@ Using dimensional and muli-dimensional pipelines data will be transformed into a
 
 ## Prerequisites:
 
-### Note azure raw datalake storage account
+### To get azure raw datalake storage account
 
 1. In the **Resource groups** blade, Sort the resorces by Type where you can see three storage account.
    Raw datalake storage account is one that starts with **azrawdatalake** followed by random string. Note down same as this will be used many times when proceed with 
