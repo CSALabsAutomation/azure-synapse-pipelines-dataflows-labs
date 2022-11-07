@@ -9,7 +9,7 @@ Using dimensional and muli-dimensional pipelines data will be transformed into a
 ### Note azure raw datalake storage account
 
 1. In the **Resource groups** blade, Sort the resorces by Type where you can see three storage account.
-   Raw datalake storage account is one that starts with **azrawdatalake** followed by random string. Note down same as this will ve used many time as we proceed with 
+   Raw datalake storage account is one that starts with **azrawdatalake** followed by random string. Note down same as this will be used many time when proceed with 
    this lab.
    
    ![Note azure raw datalake storage account](./assets/rawlakestorage.jpg "rawstorageaccount")  
